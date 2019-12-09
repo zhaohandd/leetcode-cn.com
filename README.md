@@ -25,6 +25,23 @@ class Solution {
 }
 ```
 ### 53. 最大子序和
+```
+class Solution {
+    public int maxSubArray(int[] nums) {
+        int result = nums[0];
+        int sum = 0;
+        for (int num : nums) {
+            if (sum > 0) {
+                sum += num;
+            } else {
+                sum = num;
+            }
+            result = Math.max(result, sum);
+        }
+        return result;
+    }
+}
+```
 ### 85. 最大矩形
 ### 10. 正则表达式匹配
 ### 95. 不同的二叉搜索树
