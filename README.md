@@ -3,6 +3,27 @@
 
 ## 动态规划
 ### 5. 最长回文子串
+```
+class Solution {
+    public String longestPalindrome(String s) {
+        String result = "";
+        int length = s.length();
+        // 动态规划，双指针
+        boolean dp[][] = new boolean[length][length];
+        for (int i = 0; i < length; i++) {
+            for (int j = i; j >=0; j-- ) {
+                if (s.charAt(i) == s.charAt(j) && (i-j<2 || dp[i-1][j+1])) {
+                    dp[i][j] = true;
+                }
+                if (dp[i][j] && (i-j+1 > result.length())) {
+                    result = s.substring(j, i+1);
+                }
+            }
+        }
+        return result;
+    }
+}
+```
 ### 53. 最大子序和
 ### 85. 最大矩形
 ### 10. 正则表达式匹配
